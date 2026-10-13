@@ -1,4 +1,5 @@
 # Tension Climbing SQL database
+DISCLAIMER: (This project was worked on junction with Joshua Carr at Western Colorado University)
 
 This project is a relational database built in MySQL that tracks the operations of the climbing/training brand "Tension Climbing". It tracks customers, orders, inventory, and the full production (saw -> machine -> finish -> prepack). This repo contains an ERD, a one file schema and sample dataset, 11 analytical queries, and 2 stored procedures. 
 
