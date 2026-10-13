@@ -1,28 +1,52 @@
 # Tension Climbing SQL database
-# Overview
-This project is a model database for the climbing training brand, "Tension Climbing". This database tracks customers, employees, products, orders, inventory, machinery, and the production process of the company.
 
-# Objectives
-Organize manufacturing, inventory, and sales information in a relational database.
+This project is a relational database built in MySQL that tracks the operations of the climbing/training brand "Tension Climbing". It tracks customers, orders, inventory, and the full production (saw -> machine -> finish -> prepack). This repo contains an ERD, a one file schema and sample dataset, 11 analytical queries, and 2 stored procedures. 
 
-Analyze product sales, customer locations, inventory levels, and production activity.
+## Overview:
+Tension sells wood products that are manufactured in house, and soft products that purchased and resold. Customers are either individuals or gyms, and employees are able to place orders at a discount as well. 
 
-Use SQL queries to answer operational and business questions.
+This database is designed to answer simple operational questions about the day to day of the business. 
 
-Implement stored procedures for customer-location summaries and inventory updates.
+## Schema
+ 
+16 tables in three groups:
+ 
+| Group | Tables | What they hold |
+|---|---|---|
+| **People** | `customer`, `gym`, `employee` | Customers (individuals and gyms), gym-specific details, and staff with their equipment specialty |
+| **Sales & inventory** | `product`, `wood_product`, `soft_product`, `order`, `product_order`, `employee_order` | The product catalog, orders, line items, and employee purchases with discounts |
+| **Production** | `wood`, `saw`, `machine`, `wood_machine`, `finish`, `wood_finish`, `prepack` | Wood batches moving through sawing, machining, and finishing, plus prepacked stock |
 
-# SQL Techniques
-Filtering and aggregation
+## Getting started
+ 
+**Requirements:** MySQL 8.0 or newer.
+ 
+1. Create an empty database.
+```sql
+   CREATE DATABASE tension_climbing;
+```
+ 
+2. Load the schema and sample data, then the stored procedures.
+```bash
+   mysql -u <user> -p tension_climbing < "sql/Tension Database Dump.sql"
+   mysql -u <user> -p tension_climbing < "sql/Tension Database Stored Procedures.sql"
+```
+ 
+3. Run the analytical queries
+```bash
+   mysql -u <user> -p tension_climbing < "sql/Tension Database Queries.sql"
+```
+ 
+All data is made up (all the names are some of my favorite pro climbers :) )
 
-Multi-table joins and subqueries
-
-GROUP BY, ORDER BY, and aggregate functions
-
-Stored procedures and database updates
-
-Relational tables and foreign-key relationships
-
-# Repository Structure
-sql/ - database scripts, analyical queries, and stored procedures
-
-docs/ - database schema
+## Repository structure
+ 
+```
+.
+├── README.md
+├── docs/
+│   ├── Tension Climbing Database ERD.pdf   # full ERD with design notes
+└── sql/
+    ├── Tension Database Dump.sql           # schema + sample data
+    ├── Tension Database Queries.sql        # 11 analytical queries
+    └── Tension Database Stored Procedures.sql # 2 stored procedures
