@@ -17,7 +17,7 @@ This database is designed to answer simple operational questions about the day t
 | **Sales & inventory** | `product`, `wood_product`, `soft_product`, `order`, `product_order`, `employee_order` | The product catalog, orders, line items, and employee purchases with discounts |
 | **Production** | `wood`, `saw`, `machine`, `wood_machine`, `finish`, `wood_finish`, `prepack` | Wood batches moving through sawing, machining, and finishing, plus prepacked stock |
 
-## Getting started
+## Basic outline of how to run
  
 **Requirements:** MySQL 8.0 or newer.
  
